@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>チャットボット</title>
+</head>
+<body>
+<script src="js/bot.js"></script>
+<script>
+    const chatux = new ChatUx();
+    const initParam =
+        {
+            //ここでPCorスマフォの設定、今は自動設定にしている
+            renderMode: 'auto',
+            api: {
+                endpoint: 'http://127.0.0.1:5000/chat',
+                method: 'GET',
+                dataType: 'jsonp'
+            },
+            //ボット側の設定
+            bot: {
+                botPhoto: 'img/pengin.png',
+                humanPhoto: "img/pengino.png",
+                widget: {
+                    sendLabel: '送信',
+                    placeHolder: '話してみてね！'
+                }
+            },
+            window: {
+                title: '大学チャットボット',
+                infoUrl: 'http://wapli.com'
+            }
+        };
+    chatux.init(initParam);
+    chatux.start(true);
+</script>
+</body>
+</html>
